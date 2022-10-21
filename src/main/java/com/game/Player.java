@@ -69,7 +69,7 @@ public class Player implements PlayerInterface {
 
     @Override
     public String getPlayerInfo() {
-        System.out.println("PlayerInfo");
+
         try {
             File playerFile = new File("player.txt");
             Scanner reader = null;
@@ -83,6 +83,6 @@ public class Player implements PlayerInterface {
             e.printStackTrace();
         } finally {
         }
-        return "{\nname: " + name + ", \ngamesPlayed: " + gamesPlayed + ",\ntotalMoves: " + totalMoves + "\n}";
+        return "{\nName: " + name + ", \nGames Played: " + gamesPlayed + ",\nTotal Moves: " + totalMoves + "\n}";
     }
 }

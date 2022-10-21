@@ -44,34 +44,25 @@ public class Controller {
     // make moves
     @PutMapping("/game")
     public String giveMove(@RequestParam Integer move) {
-
+        game.setMoveNumber(game.getMoveNumber() + 1);
+        player.setTotalMoves(player.getTotalMoves() + 1);
+        game.setTotalMoves(player.getTotalMoves());
         if (move > game.getSecretNumber()) {
-            game.setMoveNumber(game.getMoveNumber() + 1);
-            player.setTotalMoves(player.getTotalMoves() + 1);
-            game.setTotalMoves(player.getTotalMoves());
             player.createPlayerFile();
             player.getPlayerInfo();
-
             return "The number is smaller.";
         } else if (move < game.getSecretNumber()) {
-            game.setMoveNumber(game.getMoveNumber() + 1);
-            player.setTotalMoves(player.getTotalMoves() + 1);
-            game.setTotalMoves(player.getTotalMoves());
             player.createPlayerFile();
             player.getPlayerInfo();
-
             return "The number is bigger.";
 
         } else {
-            game.setMoveNumber(game.getMoveNumber() + 1);
-            player.setTotalMoves(player.getTotalMoves() + 1);
-            game.setTotalMoves(player.getTotalMoves());
             player.setGamesPlayed(player.getGamesPlayed() + 1);
             game.setGamesPlayed(player.getGamesPlayed());
             player.createPlayerFile();
             player.getPlayerInfo();
-
             return "Correct! You used " + game.getMoveNumber() + " moves.";
         }
+
     }
 }

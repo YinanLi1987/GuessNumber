@@ -15,9 +15,6 @@ interface PlayerInterface {
 
     void createPlayerFile();
 
-    /**
-     * @return
-     */
     String getPlayerInfo();
 
 }
